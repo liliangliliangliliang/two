@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.MemMapper">
+
+    <select id="menQuery" parameterType="pojo.Member" resultType="pojo.Member">
+      select * from member
+    </select>
+
+    <select id="menqueryById" parameterType="String" resultType="pojo.Member">
+      select * from member where id=#{id}
+    </select>
+
+    <select id="menqueryOne" parameterType="String" resultType="pojo.Member">
+      select * from member where mname like concat('%',#{mname},'%')
+    </select>
+
+    <update id="menUpdata" parameterType="pojo.Member">
+      update member set mname=#{mname},mgender=#{mgender},mage=#{mage},maddress=#{maddress},memail=#{memail} where id=#{id}
+    </update>
+
+    <delete id="menDel" parameterType="String">
+      delete from member where id=#{id}
+    </delete>
+
+
+</mapper>
